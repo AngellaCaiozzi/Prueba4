@@ -58,16 +58,18 @@ def ConsultarComprador(diccComprador):
             print(f'Tipo de entrada: ',diccComprador[nombre][0] , '|Código: ', diccComprador[nombre][1])
             break
         else:
-            print('El comprador no se encuentra en la lista.')          
+            print('El comprador no se encuentra en la lista.') 
+    return diccComprador                                
 
 #Cancelar compra
 def cancelarCompra(diccComprador):
     while True:
         nombre = input('Ingrese nombre del usuario: ').strip()
-        if nombre in diccComprador:
-            del diccComprador
-            print('¡Compra cancelada!')
-            break
-        else:
+        if nombre not in diccComprador:
             print('El comprador no se encuentra en la lista.')
-    
+        else:
+            del diccComprador[nombre]
+            print('¡Compra cancelada!')
+            break   
+    return diccComprador   
+
